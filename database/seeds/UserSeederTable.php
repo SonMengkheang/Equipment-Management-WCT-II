@@ -23,7 +23,7 @@ class UserSeederTable extends Seeder
             'name' => 'BongTer',
             'email' => 'xbongter@gmail.com',
             'password' => bcrypt('123456789'),
-            'class_creator' => 1
+//            'class_creator' => 1
             ]
         );
 
@@ -35,7 +35,7 @@ class UserSeederTable extends Seeder
                 'name' => 'Mengkheang',
                 'email' => 'mengkheang@gmail.com',
                 'password' => bcrypt('123456789'),
-                'class_creator' => 1
+//                'class_creator' => 1
             ]
         );
 
@@ -45,7 +45,7 @@ class UserSeederTable extends Seeder
             'name' => 'Linada',
             'email' => 'linada@gmail.com',
             'password' => bcrypt('123456789'),
-            'class_creator' => 0
+//            'class_creator' => 0
         ]);
 
         $user->roles()->attach($userRole);
