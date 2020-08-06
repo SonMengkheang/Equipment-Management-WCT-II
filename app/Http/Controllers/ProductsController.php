@@ -2,24 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes;
 use Illuminate\Http\Request;
 //use Illuminate\Support\Facades\DB;
 use App\Product;
 use DB;
 use DateTime;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
 class ProductsController extends Controller
 {
     public function Index(){
-        $product = DB::table('products')->get();
+        DB::table('products')->get();
+        $product = Auth::user()->products;
         return view('products.index',compact('product'));
     }
 
 
     public function Create(){
-        return view('products.create');
+
+        $userId = auth()->user()->id;
+        $selectedClass = Classes::with('classes')->where('user_id', $userId)->pluck('className', 'id');
+        //dd($selectedClass);
+
+        return view('products.create')->with([
+            'classNames' => $selectedClass
+        ]);
     }
 
     public function Store(Request $request){
@@ -31,8 +41,13 @@ class ProductsController extends Controller
         $data['stock'] = $request->input('stock');
         $data['color'] = $request->input('color');
         $data['size_type'] = $request->input('size_type');
-        $data['department_id'] = $request->input('department_id');
+        #$data['class_id'] = $request->input('class_id');
         $data['pro_info'] = $request->input('pro_info');
+        $data['user_id'] = $request->input('user_id');
+
+        $selectedClass = $request->input('class_id');
+        dd($selectedClass);
+
 
         $image = $request->file('image');
         if ($image) {

@@ -27,18 +27,15 @@
                 <a class="btn btn-success" href="{{url('/')}}">Back</a>
             </div>
             <div class="col-lg-6 offset-lg-3">
-                <form class="text-center border border-light p-5" action="#!">
-
+                <form class="text-center border border-light p-5" action="{{route('users.joinClass')}}" method="POST">
+                    @csrf
                     <p class="h4 mb-4">Join Class</p>
-
-                    <input type="text" class="form-control mb-4" placeholder="Class Code...">
-
+                    <input type="text" name="joinClassCode" class="form-control mb-4" placeholder="Class Code...">
                     <button class="btn btn-info btn-block my-4" type="submit">Join Now</button>
                     <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
                     <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
                     <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
                     <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
-
                 </form>
             </div>
             <br>

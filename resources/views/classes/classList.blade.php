@@ -83,8 +83,7 @@
                     </thead>
                     <tbody>
 
-
-                    @foreach($class as $classes)
+                    @foreach($user as $classes)
                     <tr>
                         <th scope="row">{{$classes->id}}</th>
                         <td>{{$classes->className}}</td>

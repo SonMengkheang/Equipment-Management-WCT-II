@@ -44,13 +44,11 @@
         </div>
 
         <div class="form-group">
-            <label>Department</label>
-            <select name="department_id" class="form-control">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+            <label>Select Class</label>
+            <select name="class_id" class="form-control">
+                @foreach($classNames as $id => $className)
+                    <option value="{{ $id }}">{{ $className }}</option>
+                @endforeach
             </select>
         </div>
 
@@ -60,9 +58,14 @@
         </div>
 
         <div class="form-group">
+            <input type="hidden" name="user_id" class="form-control" value="{{ Auth::user()->id }}">
+        </div>
+
+        <div class="form-group">
             <label>Image</label>
             <input type="file" name="image" class="form-control-file">
         </div>
+
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

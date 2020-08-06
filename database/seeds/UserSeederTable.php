@@ -18,20 +18,35 @@ class UserSeederTable extends Seeder
         $adminRole = Role::where('name', 'admin')->first();
         $userRole = Role::where('name', 'user')->first();
 
-        $admin = User::create([
+        $admin = User::create(
+            [
             'name' => 'BongTer',
             'email' => 'xbongter@gmail.com',
-            'password' => bcrypt('123456789')
-        ]);
+            'password' => bcrypt('123456789'),
+            'class_creator' => 1
+            ]
+        );
+
+        $admin->roles()->attach($adminRole);
+
+
+        $admin = User::create(
+            [
+                'name' => 'Mengkheang',
+                'email' => 'mengkheang@gmail.com',
+                'password' => bcrypt('123456789'),
+                'class_creator' => 1
+            ]
+        );
 
         $admin->roles()->attach($adminRole);
 
         $user = User::create([
             'name' => 'Linada',
             'email' => 'linada@gmail.com',
-            'password' => bcrypt('123456789')
+            'password' => bcrypt('123456789'),
+            'class_creator' => 0
         ]);
-
 
         $user->roles()->attach($userRole);
     }

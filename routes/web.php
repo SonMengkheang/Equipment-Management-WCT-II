@@ -29,13 +29,17 @@ Route::get('/homepage/createClass',function (){
     return view('frontend.createClass');
 });
 
-Route::get('/homepage/joinClass',function (){
-    return view('frontend.joinClass');
-});
+// join class controller
+Route::get('/homepage/joinClass','JoinClassController@index');
+Route::post('/homepage/joinedClass','JoinClassController@joinClass')
+    ->name('users.joinClass');
+
 
 Route::get('homepage/yourProfile',function (){
     return view('frontend.userProfileDetail');
 });
+
+
 
 
 // create route group for dashboard that admin only can access
@@ -58,11 +62,17 @@ Route::group(['prefix'=>'dashboard', 'middleware'=>['auth','auth.admin']], funct
     // delete class by id
     Route::delete('/classes/delete/{id}','ClassController@destroy')->name('classes.destroy');
 
-    //need to be fixed ...
+    // update class by id
     Route::patch('/classes/update/{id}','ClassController@update')->name('classes.update');
 
 
 
+
+    Route::get('/borrowers','ClassController@borrowedClass');
+
+    Route::get('/borrowerList',function (){
+        return view('borrowers.borrowersList');
+    });
 
 
 
@@ -74,13 +84,6 @@ Route::group(['prefix'=>'dashboard', 'middleware'=>['auth','auth.admin']], funct
         return view('users.usersDetailProfile');
     });
 
-    Route::get('/borrowers',function (){
-        return view('borrowers.classCard');
-    });
-
-    Route::get('/borrowerList',function (){
-        return view('borrowers.borrowersList');
-    });
 
     Route::get('/borrowers/class/id',function (){
         return view('borrowers.borrowersCard');

@@ -41,14 +41,14 @@
                     <th width="250px">DETAILS</th>
                     <th width="200px">ACTION</th>
                 </tr>
-
+                @if(Auth::user()->id)
                 @foreach($product as $pro)
                 <tr>
                     <td>{{$pro->id}}</td>
                     <td><img src="{{URL::to($pro->image)}}" height="80px" width="80px" class="rounded-circle"></td>
                     <td>{{$pro->pro_name}}</td>
                     <td>{{$pro->pro_code}}</td>
-                    <td>{{$pro->department_id}}</td>
+                    <td>{{$pro->class_id}}</td>
                     <td>{{$pro->pro_info}}</td>
 
                     <td>
@@ -70,7 +70,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                                        <button onclick="window.location.href='{{url('dashboard/products/delete',$pro->id)}}';" type="submit" class="btn btn-primary">Delete</button>
+                                        <button onclick="window.location.href='{{url('dashboard/ /delete',$pro->id)}}';" type="submit" class="btn btn-primary">Delete</button>
                                     </div>
                                 </div>
                             </div>
@@ -79,6 +79,7 @@
 
                 </tr>
                 @endforeach
+                    @endif
             </table>
             </div>
         </div>

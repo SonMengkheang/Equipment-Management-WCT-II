@@ -16,10 +16,9 @@ class CreateClassesTable extends Migration
         Schema::create('classes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('className');
-            $table->string('classCode');
+            $table->string('classCode')->unique();
             $table->string('room');
             $table->string('section');
-
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')
                 ->references('id')->on('users')->onDelete('cascade');

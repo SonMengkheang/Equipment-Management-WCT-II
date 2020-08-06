@@ -10,6 +10,7 @@ use DateTime;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -28,8 +29,15 @@ class ClassController extends Controller
 
     public function index()
     {
-        $class = DB::table('classes')->get();
-        return view('classes.classList',compact('class'));
+        DB::table('classes')->get();
+        $user = Auth::user()->classes;
+        return view('classes.classList',compact('user'));
+    }
+
+    public function borrowedClass(){
+        DB::table('classes')->get();
+        $user = Auth::user()->classes;
+        return view('borrowers.classCard',compact('user'));
     }
 
     /**
@@ -55,7 +63,7 @@ class ClassController extends Controller
             'user_id' => ['required']
         ]);
 
-        $userId = $request->input('user_id');
+//        $userId = $request->input('user_id');
 
         if ($validator->fails()) {
             return back()

@@ -15,16 +15,19 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
         $table->bigIncrements('id');
         $table->string('pro_name');
-        $table->string('pro_code');
+        $table->string('pro_code')->unique();
         $table->decimal('pro_price',10,2);
         $table->text('pro_info');
         $table->string('image')->nullable();
         $table->integer('stock');
         $table->string('size_type');
         $table->string('color');
-        $table->integer('department_id');
-        //$table->string('admin_name')->nulllable();
-        //$table->string('admin_email')->nullable();
+        $table->integer('class_id');
+
+        $table->bigInteger('user_id')->unsigned();
+        $table->foreign('user_id')
+            ->references('id')->on('users')->onDelete('cascade');
+
         $table->timestamps();
     });
     }
