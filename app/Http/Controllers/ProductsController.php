@@ -40,7 +40,7 @@ class ProductsController extends Controller
         $data['stock'] = $request->input('stock');
         $data['color'] = $request->input('color');
         $data['size_type'] = $request->input('size_type');
-        #$data['class_id'] = $request->input('class_id');
+        $data['class_id'] = $request->input('class_id');
         $data['pro_info'] = $request->input('pro_info');
         $data['user_id'] = $request->input('user_id');
 
