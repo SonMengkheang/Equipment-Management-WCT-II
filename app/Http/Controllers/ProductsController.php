@@ -4,11 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Classes;
 use Illuminate\Http\Request;
-//use Illuminate\Support\Facades\DB;
 use App\Product;
-use DB;
 use DateTime;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -46,7 +45,7 @@ class ProductsController extends Controller
         $data['user_id'] = $request->input('user_id');
 
         $selectedClass = $request->input('class_id');
-        dd($selectedClass);
+        //dd($selectedClass);
 
 
         $image = $request->file('image');
