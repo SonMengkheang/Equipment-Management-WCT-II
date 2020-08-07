@@ -70,7 +70,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                                        <button onclick="window.location.href='{{url('dashboard/ /delete',$pro->id)}}';" type="submit" class="btn btn-primary">Delete</button>
+                                        <button onclick="window.location.href='{{url('dashboard/products/delete',$pro->id)}}';" type="submit" class="btn btn-primary">Delete</button>
                                     </div>
                                 </div>
                             </div>

@@ -64,6 +64,15 @@ class ProductsController extends Controller
     }
 
     public function Edit($id){
+
+//        $userId = auth()->user()->id;
+//        $selectedClass = Classes::with('classes')->where('user_id', $userId)->pluck('className', 'id');
+//        //dd($selectedClass);
+//
+//        return view('products.edit')->with([
+//            'classNames' => $selectedClass
+//        ]);
+
         $product = DB::table('products')->where('id',$id)->first();
         return view('products.edit',compact('product'));
     }
@@ -78,9 +87,9 @@ class ProductsController extends Controller
             'stock' => ['sometimes'],
             'color' => ['sometimes'],
             'size_type' => ['sometimes'],
-            'department_id' => ['sometimes'],
+            'class_id' => ['sometimes'],
             'pro_info' => ['sometimes'],
-                'image' => ['sometimes','image', 'mimes:jpg,png,jpeg,gif', 'max:2048']
+            'image' => ['sometimes','image', 'mimes:jpg,png,jpeg,gif', 'max:2048']
         ];
 
         $validator = Validator::make($request->all(), $rule);
@@ -98,7 +107,7 @@ class ProductsController extends Controller
         $stock = $request->input('stock');
         $color = $request->input('color');
         $size_type = $request->input('size_type');
-        $department_id = $request->input('department_id');
+        $class_id = $request->input('class_id');
         $pro_info = $request->input('pro_info');
         $old_image = $request->old_image;
         $updated_at = new DateTime;
@@ -124,7 +133,7 @@ class ProductsController extends Controller
         $product->stock = $stock ?: $product->stock;
         $product->color = $color ?: $product->color;
         $product->size_type = $size_type ?: $product->size_type;
-        $product->department_id = $department_id ?: $product->department_id;
+        $product->class_id = $class_id ?: $product->department_id;
         $product->pro_info = $pro_info ?: $product->pro_info;
         $product->image = $image ?: $product->image;
         $product->updated_at = $updated_at ?: $product->updated_at;

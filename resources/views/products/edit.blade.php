@@ -46,13 +46,11 @@
         </div>
 
         <div class="form-group">
-            <label>Department</label>
-            <select name="department_id" class="form-control" value="{{$product->department_id}}">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+            <label>Select Class </label>
+            <select name="class_id" class="form-control">
+                    <option>
+                        {{$product->class_id}}
+                    </option>
             </select>
         </div>
 

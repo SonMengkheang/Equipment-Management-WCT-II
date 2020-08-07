@@ -81,7 +81,6 @@ class ClassController extends Controller
 
         return redirect()->route('classes.index')
                 ->with('success', 'Class Created Successfully');
-
     }
 
 
@@ -120,10 +119,9 @@ class ClassController extends Controller
     {
         $rule = [
             'className' => ['sometimes'] ,
-            'classCode' => ['sometimes', 'min:7', 'string', 'unique:classes'],
+            'classCode' => ['sometimes', 'min:7', 'string', Rule::unique('classes')->ignore($id)],
             'room' => ['sometimes'],
             'section' => ['sometimes'],
-            'user_id' => ['sometimes'],
         ];
 
         $validator = Validator::make($request->all(), $rule);
@@ -141,6 +139,8 @@ class ClassController extends Controller
 
         $class = Classes::find($id);
 //        $class = DB::table('classes')->where('id',$id)->first();
+
+        //dd($className);
 
         $class->className = $className ?: $class->className;
         $class->classCode = $classCode ?: $class->classCode;
