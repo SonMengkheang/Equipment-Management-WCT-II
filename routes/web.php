@@ -29,10 +29,14 @@ Route::get('/homepage/createClass',function (){
     return view('frontend.createClass');
 });
 
-// join class controller
-Route::get('/homepage/joinClass','JoinClassController@index');
-Route::post('/homepage/joinedClass','JoinClassController@joinClass')
+// user join class controller
+Route::get('/homepage/joinClass','UserCreateJoinClassController@index');
+Route::post('/homepage/joinedClass','UserCreateJoinClassController@joinClass')
     ->name('users.joinClass');
+
+// user create class controller
+Route::post('/homepage/createClass','UserCreateJoinClassController@createClass')
+    ->name('users.createClass');
 
 
 Route::get('homepage/yourProfile',function (){
