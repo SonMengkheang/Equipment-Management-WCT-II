@@ -20,8 +20,8 @@ class UserSeederTable extends Seeder
 
         $admin = User::create(
             [
-            'name' => 'BongTer',
-            'email' => 'xbongter@gmail.com',
+            'name' => 'Sok San',
+            'email' => 'soksan@gmail.com',
             'password' => bcrypt('123456789'),
             ]
         );
