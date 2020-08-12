@@ -24,6 +24,12 @@
         <div class="container">
             <br>
             <div class="card-header " style="background-color: white ; border: hidden ; margin-left: -10px" >
+                @if($message = Session::get('success'))
+                    <div class="alert alert-success">
+                        <p>{{$message}}</p>
+                    </div>
+                @endif
+
                 <a class="btn btn-success" href="{{url('/')}}">Back</a>
             </div>
             <div class="col-lg-6 offset-lg-3">
@@ -31,6 +37,8 @@
                     @csrf
                     <p class="h4 mb-4">Join Class</p>
                     <input type="text" name="joinClassCode" class="form-control mb-4" placeholder="Class Code...">
+                    <input type="hidden" name="user_id" class="form-control mb-4" value="{{auth::user()->id}}">
+
                     <button class="btn btn-info btn-block my-4" type="submit">Join Now</button>
                     <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
                     <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>

@@ -15,6 +15,7 @@ class CreateJoinedClassTable extends Migration
     {
         Schema::create('joined_class', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('classCode');
             $table->bigInteger('class_id')->unsigned();
             $table->foreign('class_id')->references('id')
                 ->on('classes')->onDelete('cascade')->onUpdate('cascade');

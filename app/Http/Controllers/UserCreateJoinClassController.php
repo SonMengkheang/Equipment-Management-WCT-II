@@ -8,25 +8,65 @@ use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use PhpParser\Node\Scalar\String_;
 
 class UserCreateJoinClassController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index (){
-        return view('frontend.joinClass');
+        DB::table('classes')->get();
+        $user = Auth::user()->classes;
+        return view('frontend.joinClass',compact('user'));
     }
 
     public function joinClass (Request $request){
 
-        $classCodeVerify = 'BE-Y3-4th';
-        $status = (string)'congratulations';
-        $getClassCode = DB::table('classes')->where('classCode',$classCodeVerify)->first();
-        $classCodeInput = $request->input('joinClassCode');
-        //dd($classCodeInput,$getClassCode);
+//        $classCodeVerify = 'H-D-001';
+//        $getClassCode = DB::table('classes')->where('classCode',$classCodeVerify)->first();
+//        $status = (string)'congratulations';
 
-        if ($getClassCode->classCode === $classCodeInput){
-            dd($status);
+        $classCodeInput = $request->input('joinClassCode');
+        $getClassCode = Classes::all();
+
+//      $existClassCode = DB::table('joined_class')->all();
+//      $existClassCode = DB::table('classes')->where('classCode',$classCodeInput)->first();
+
+
+        $joinClass = array();
+
+        foreach ($getClassCode as $code) {
+            if ($code->classCode === $classCodeInput){
+//                dd($status,
+//                    $code->id,
+//                    $code->className,
+//                    $code->classCode,
+//                    $code->room,
+//                    $code->section
+//                );
+                $joinClass['classCode'] = $code->classCode;
+                $joinClass['class_id'] = $code->id;
+                $joinClass['user_id'] = $request->input('user_id');
+
+                DB::table('joined_class')->insert($joinClass);
+                return redirect()->route('home')
+                    ->with('success', 'You have Successfully joined this class');
+
+            }else if($code->classCode === null){
+                return redirect()->back()
+                    ->with('success', 'This class does not exist');
+            }else if($code->classCode !== $classCodeInput){
+                return redirect()->back()
+                    ->with('success', 'This class does not exist');
+            }
+//          elseif ($existClassCode === $classCodeInput){
+//                return redirect()->back()
+//                    ->with('success', 'You have joined this class');
+//          }
         }
+
 
     }
 
