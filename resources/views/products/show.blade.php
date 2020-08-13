@@ -62,7 +62,7 @@
                         <p>{{$product->pro_info}}</p>
 
                         <form class="d-flex justify-content-left" style="margin-left: -5px">
-                            <button onclick="window.location.href({{url('dashboard/products/edit',$product->id)}}" class="btn btn-primary btn-md my-0 p">Update
+                            <button onclick="window.location.href({{route('products.edit',$product->id)}}" class="btn btn-primary btn-md my-0 p">Update
                                 <i class="fas fa-edit ml-1"></i>
                             </button>
                         </form>

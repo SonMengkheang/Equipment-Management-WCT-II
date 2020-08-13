@@ -84,7 +84,7 @@ Route::group(['prefix'=>'dashboard', 'middleware'=>['auth','auth.admin']], funct
         return view('users.usersList');
     });
 
-    Route::get('/dashboard/users/profile',function (){
+    Route::get('/users/profile',function (){
         return view('users.usersDetailProfile');
     });
 
@@ -102,7 +102,7 @@ Route::group(['prefix'=>'dashboard', 'middleware'=>['auth','auth.admin']], funct
     Route::get('/products/create','ProductsController@Create')->name('products.create');
     Route::post('/products/store','ProductsController@Store')->name('products.store');
     // Update Item by ID
-    Route::get('/products/edit/{id}','ProductsController@Edit');
+    Route::get('/products/edit/{id}','ProductsController@Edit')->name('products.edit');
     Route::patch('/products/update/{id}','ProductsController@Update')->name('products.update');
     //Delete Item by ID
     Route::get('/products/delete/{id}','ProductsController@Delete');
