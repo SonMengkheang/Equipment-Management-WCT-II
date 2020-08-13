@@ -25,7 +25,7 @@
                     <div class="col-md-6 mb-4">
                         <div class="row">
                             <div class="mb-4">
-                                <h3><span class="badge purple mr-2">Your Class ID {{$product->class_id}}</span></h3>
+                                <h3><span class="badge purple mr-2">Your Class ID : {{$product->class_id}}</span></h3>
                             </div>
                             <div class="mb-4">
                                 <h3><span class="badge blue mr-2">New</span></h3>

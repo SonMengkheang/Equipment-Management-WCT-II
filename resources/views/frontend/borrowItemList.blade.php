@@ -31,13 +31,13 @@
             <div class="container">
                 <div class="row">
                     @foreach($products as $product)
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="card card-cascade narrower">
 
                                 <!-- Card image -->
                                 <div class="view view-cascade overlay">
                                     <img class="card-img-top" src="{{URL::to($product->image)}}"
-                                         alt="Card image cap" style="width: 100%; height: 200px">
+                                         alt="Card image cap" style="width: 100%; height: 300px">
                                     <a>
                                         <div class="mask rgba-white-slight"></div>
                                     </a>
@@ -47,13 +47,13 @@
                                 <div class="card-body card-body-cascade">
 
                                     <!-- Label -->
-                                    <h5 class="pink-text pb-2 pt-1"><i class="fas fa-utensils"></i>{{$product->pro_name}}</h5>
+                                    <h5 class="pink-text pb-2 pt-1 font-weight-bold card-title text-center"><i class="fas fa-wrench"></i> {{$product->pro_name}}</h5>
                                     <!-- Title -->
-                                    <h4 class="font-weight-bold card-title">{{$product->pro_code}}</h4>
+                                    <h5 class="font-weight-bold card-title text-center">{{$product->pro_code}}</h5>
                                     <!-- Text -->
-                                    <p class="card-text">{{$product->pro_info}}</p>
+                                    <p class="text-center text-black-50" style="size: 50px">{{$product->pro_info}}</p>
                                     <!-- Button -->
-                                    <a class="btn btn-unique text-white" href="{{url('/homepage/borrowItem/{id}')}}">View <i class="fas fa-eye"></i></a>
+                                    <a class="btn btn-unique text-white my-4" style="margin: 33% ; width: 100px" href="{{route('borrowItemDetail',$product->id)}}">View <i class="fas fa-eye"></i></a>
 
                                 </div>
 

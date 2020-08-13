@@ -162,5 +162,9 @@ class ProductsController extends Controller
         $product = DB::table('products')->where('id',$id)->first();
         return view('products.show',compact('product'));
     }
+    public function ShowForUser(Request $request, $id){
+        $product = DB::table('products')->where('id',$id)->first();
+        return view('frontend.borrowItemDetail',compact('product'));
+    }
 
 }

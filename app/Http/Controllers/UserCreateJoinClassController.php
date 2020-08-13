@@ -25,13 +25,15 @@ class UserCreateJoinClassController extends Controller
     public function joinClass (Request $request){
 
 //        $classCodeVerify = 'H-D-001';
-//        $getClassCode = DB::table('classes')->where('classCode',$classCodeVerify)->first();
+//        $getClassCode = DB::table('classes')->get();
 //        $status = (string)'congratulations';
+
+
 
         $classCodeInput = $request->input('joinClassCode');
         $getClassCode = Classes::all();
 
-//      $existClassCode = DB::table('joined_class')->all();
+
 //      $existClassCode = DB::table('classes')->where('classCode',$classCodeInput)->first();
 
 
@@ -39,13 +41,7 @@ class UserCreateJoinClassController extends Controller
 
         foreach ($getClassCode as $code) {
             if ($code->classCode === $classCodeInput){
-//                dd($status,
-//                    $code->id,
-//                    $code->className,
-//                    $code->classCode,
-//                    $code->room,
-//                    $code->section
-//                );
+
                 $joinClass['classCode'] = $code->classCode;
                 $joinClass['class_id'] = $code->id;
                 $joinClass['user_id'] = $request->input('user_id');
@@ -58,17 +54,18 @@ class UserCreateJoinClassController extends Controller
                 return redirect()->back()
                     ->with('success', 'This class does not exist');
             }
-//            else if($code->classCode !== $classCodeInput){
-//                return redirect()->back()
-//                    ->with('success', 'This class does not exist');
-//            }
-//          elseif ($existClassCode === $classCodeInput){
+        }
+
+//        $existClassCode = DB::table('joined_class')->get();
+//
+//        foreach ($existClassCode as $exist){
+//            if ($exist->classCode === $classCodeInput){
 //                return redirect()->back()
 //                    ->with('success', 'You have joined this class');
 //          }
-        }
+//        }
 
-
+        return redirect()->back()->with('success','wrong input class code');
     }
 
     public function createClass (Request $request){

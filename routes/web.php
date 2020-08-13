@@ -19,9 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/borrowItemList/{id}','ProductsController@borrowItemList')->name('borrowItemList');
 
-Route::get('/homepage/borrowItem/{id}',function (){
-    return view('frontend.borrowItemDetail');
-});
+Route::get('/homepage/borrowItem/{id}','ProductsController@ShowForUser')->name('borrowItemDetail');
+
 
 Route::get('/homepage/createClass',function (){
     return view('frontend.createClass');
