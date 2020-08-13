@@ -32,78 +32,32 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12 mb-4">
-                        <!-- Card -->
-                        <div class="card gradient-card">
-                            <div class="card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg)">
-                                <!-- Content -->
-                                <a href="{{url('borrowItemList')}}" style="text-decoration: none">
-                                    <div class="text-white d-flex h-100 mask blue-gradient-rgba">
-                                        <div class="first-content align-self-center p-3">
-                                            <h3 class="card-title">IT Department</h3>
-                                            <p class="lead mb-0">STEM 105 by Srun Sovila</p>
+                    @foreach($users as $user)
+                        <div class="col-md-12 mb-4">
+                            <!-- Card -->
+                            <div class="card gradient-card">
+                                <div class="card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg)">
+                                    <!-- Content -->
+                                        <a href="{{route('borrowItemList',$user->class_id)}}" style="text-decoration: none">
+                                        <div class="text-white d-flex h-100 mask blue-gradient-rgba">
+                                            <div class="first-content align-self-center p-3">
+                                                <h3 class="card-title">IT Department</h3>
+                                                <p class="lead mb-0">STEM 105 by Srun Sovila</p>
+                                            </div>
+                                            <div class="second-content align-self-center mx-auto text-center">
+                                                <i class="far fa-money-bill-alt fa-3x"></i>
+                                            </div>
                                         </div>
-                                        <div class="second-content align-self-center mx-auto text-center">
-                                            <i class="far fa-money-bill-alt fa-3x"></i>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- Data -->
-                            <div class="third-content ml-auto mr-4 mb-2">
-                                <p class="text-muted text-right">Take your utility today... </p>
-                                <h4 class="font-weight-bold float-right">Get in to borrow</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 mb-4">
-                        <!-- Card -->
-                        <div class="card gradient-card">
-                            <div class="card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg)">
-                                <!-- Content -->
-                                <a href="{{url('borrowItemList')}}" style="text-decoration: none">
-                                    <div class="text-white d-flex h-100 mask blue-gradient-rgba">
-                                        <div class="first-content align-self-center p-3">
-                                            <h3 class="card-title">IT Department</h3>
-                                            <p class="lead mb-0">STEM 105 by Srun Sovila</p>
-                                        </div>
-                                        <div class="second-content align-self-center mx-auto text-center">
-                                            <i class="far fa-money-bill-alt fa-3x"></i>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- Data -->
-                            <div class="third-content ml-auto mr-4 mb-2">
-                                <p class="text-muted text-right">Take your utility today... </p>
-                                <h4 class="font-weight-bold float-right">Get in to borrow</h4>
+                                    </a>
+                                </div>
+                                <!-- Data -->
+                                <div class="third-content ml-auto mr-4 mb-2">
+                                    <p class="text-muted text-right">Take your utility today... </p>
+                                    <h4 class="font-weight-bold float-right">Get in to borrow</h4>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-12 mb-4">
-                        <!-- Card -->
-                        <div class="card gradient-card">
-                            <div class="card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg)">
-                                <!-- Content -->
-                                <a href="{{url('borrowItemList')}}" style="text-decoration: none">
-                                    <div class="text-white d-flex h-100 mask blue-gradient-rgba">
-                                        <div class="first-content align-self-center p-3">
-                                            <h3 class="card-title">IT Department</h3>
-                                            <p class="lead mb-0">STEM 105 by Srun Sovila</p>
-                                        </div>
-                                        <div class="second-content align-self-center mx-auto text-center">
-                                            <i class="far fa-money-bill-alt fa-3x"></i>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- Data -->
-                            <div class="third-content ml-auto mr-4 mb-2">
-                                <p class="text-muted text-right">Take your utility today... </p>
-                                <h4 class="font-weight-bold float-right">Get in to borrow</h4>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>

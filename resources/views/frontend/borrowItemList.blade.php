@@ -30,121 +30,36 @@
             <br>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3">
-                        <div class="card card-cascade narrower">
+                    @foreach($products as $product)
+                        <div class="col-md-3">
+                            <div class="card card-cascade narrower">
 
-                            <!-- Card image -->
-                            <div class="view view-cascade overlay">
-                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg"
-                                     alt="Card image cap">
-                                <a>
-                                    <div class="mask rgba-white-slight"></div>
-                                </a>
+                                <!-- Card image -->
+                                <div class="view view-cascade overlay">
+                                    <img class="card-img-top" src="{{URL::to($product->image)}}"
+                                         alt="Card image cap" style="width: 100%; height: 200px">
+                                    <a>
+                                        <div class="mask rgba-white-slight"></div>
+                                    </a>
+                                </div>
+
+                                <!-- Card content -->
+                                <div class="card-body card-body-cascade">
+
+                                    <!-- Label -->
+                                    <h5 class="pink-text pb-2 pt-1"><i class="fas fa-utensils"></i>{{$product->pro_name}}</h5>
+                                    <!-- Title -->
+                                    <h4 class="font-weight-bold card-title">{{$product->pro_code}}</h4>
+                                    <!-- Text -->
+                                    <p class="card-text">{{$product->pro_info}}</p>
+                                    <!-- Button -->
+                                    <a class="btn btn-unique text-white" href="{{url('/homepage/borrowItem/{id}')}}">View <i class="fas fa-eye"></i></a>
+
+                                </div>
+
                             </div>
-
-                            <!-- Card content -->
-                            <div class="card-body card-body-cascade">
-
-                                <!-- Label -->
-                                <h5 class="pink-text pb-2 pt-1"><i class="fas fa-utensils"></i> Culinary</h5>
-                                <!-- Title -->
-                                <h4 class="font-weight-bold card-title">Cheat day inspirations</h4>
-                                <!-- Text -->
-                                <p class="card-text">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
-                                    laboriosam, nisi ut aliquid ex ea commodi.</p>
-                                <!-- Button -->
-                                <a class="btn btn-unique text-white" href="{{url('/homepage/borrowItem/{id}')}}">View <i class="fas fa-eye"></i></a>
-
-                            </div>
-
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card card-cascade wider">
-
-                            <!-- Card image -->
-                            <div class="view view-cascade overlay">
-                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg"
-                                     alt="Card image cap">
-                                <a>
-                                    <div class="mask rgba-white-slight"></div>
-                                </a>
-                            </div>
-
-                            <!-- Card content -->
-                            <div class="card-body card-body-cascade">
-
-                                <!-- Label -->
-                                <h5 class="pink-text pb-2 pt-1"><i class="fas fa-utensils"></i> Culinary</h5>
-                                <!-- Title -->
-                                <h4 class="font-weight-bold card-title">Cheat day inspirations</h4>
-                                <!-- Text -->
-                                <p class="card-text">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
-                                    laboriosam, nisi ut aliquid ex ea commodi.</p>
-                                <!-- Button -->
-                                <a class="btn btn-unique text-white" href="{{url('/homepage/borrowItem/{id}')}}">View <i class="fas fa-eye"></i></a>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card card-cascade narrower">
-
-                            <!-- Card image -->
-                            <div class="view view-cascade overlay">
-                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg"
-                                     alt="Card image cap">
-                                <a>
-                                    <div class="mask rgba-white-slight"></div>
-                                </a>
-                            </div>
-
-                            <!-- Card content -->
-                            <div class="card-body card-body-cascade">
-
-                                <!-- Label -->
-                                <h5 class="pink-text pb-2 pt-1"><i class="fas fa-utensils"></i> Culinary</h5>
-                                <!-- Title -->
-                                <h4 class="font-weight-bold card-title">Cheat day inspirations</h4>
-                                <!-- Text -->
-                                <p class="card-text">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
-                                    laboriosam, nisi ut aliquid ex ea commodi.</p>
-                                <!-- Button -->
-                                <a class="btn btn-unique text-white" href="{{url('/homepage/borrowItem/{id}')}}">View <i class="fas fa-eye"></i></a>
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card card-cascade narrower">
-
-                            <!-- Card image -->
-                            <div class="view view-cascade overlay">
-                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg"
-                                     alt="Card image cap">
-                                <a>
-                                    <div class="mask rgba-white-slight"></div>
-                                </a>
-                            </div>
-
-                            <!-- Card content -->
-                            <div class="card-body card-body-cascade">
-
-                                <!-- Label -->
-                                <h5 class="pink-text pb-2 pt-1"><i class="fas fa-utensils"></i> Culinary</h5>
-                                <!-- Title -->
-                                <h4 class="font-weight-bold card-title">Cheat day inspirations</h4>
-                                <!-- Text -->
-                                <p class="card-text">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
-                                    laboriosam, nisi ut aliquid ex ea commodi.</p>
-                                <!-- Button -->
-                                <a class="btn btn-unique text-white" href="{{url('/homepage/borrowItem/{id}')}}">View <i class="fas fa-eye"></i></a>
-
-                            </div>
-
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <br>

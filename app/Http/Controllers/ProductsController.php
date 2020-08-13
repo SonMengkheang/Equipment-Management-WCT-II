@@ -19,6 +19,11 @@ class ProductsController extends Controller
         return view('products.index',compact('product'));
     }
 
+    public function borrowItemList($id){
+        $products = DB::table('products')->where('class_id','=',$id)->get();
+        return view('frontend.borrowItemList',compact('products'));
+    }
+
 
     public function Create(){
 

@@ -57,10 +57,11 @@ class UserCreateJoinClassController extends Controller
             }else if($code->classCode === null){
                 return redirect()->back()
                     ->with('success', 'This class does not exist');
-            }else if($code->classCode !== $classCodeInput){
-                return redirect()->back()
-                    ->with('success', 'This class does not exist');
             }
+//            else if($code->classCode !== $classCodeInput){
+//                return redirect()->back()
+//                    ->with('success', 'This class does not exist');
+//            }
 //          elseif ($existClassCode === $classCodeInput){
 //                return redirect()->back()
 //                    ->with('success', 'You have joined this class');

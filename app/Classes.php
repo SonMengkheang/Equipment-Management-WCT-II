@@ -12,7 +12,6 @@ class Classes  extends Model
           protected $fillable = ['className','classCode', 'room', 'section'];
 
     public function user() {
-
         #return $this->belongsToMany('App\Role');
         return $this->hasMany(User::class);
 

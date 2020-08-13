@@ -17,9 +17,7 @@ use Illuminate\Support\Facades\Route;
 //    return view('frontend.homepage');
 //});
 
-Route::get('/borrowItemList',function (){
-    return view('frontend.borrowItemList');
-});
+Route::get('/borrowItemList/{id}','ProductsController@borrowItemList')->name('borrowItemList');
 
 Route::get('/homepage/borrowItem/{id}',function (){
     return view('frontend.borrowItemDetail');
