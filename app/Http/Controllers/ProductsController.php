@@ -14,7 +14,7 @@ use Illuminate\Validation\Rule;
 class ProductsController extends Controller
 {
     public function Index(){
-        DB::table('products')->get();
+        //DB::table('products')->get();
         $product = Auth::user()->products;
         return view('products.index',compact('product'));
     }
@@ -70,16 +70,12 @@ class ProductsController extends Controller
 
     public function Edit($id){
 
-//        $userId = auth()->user()->id;
-//        $selectedClass = Classes::with('classes')->where('user_id', $userId)->pluck('className', 'id');
-//        //dd($selectedClass);
-//
-//        return view('products.edit')->with([
-//            'classNames' => $selectedClass
-//        ]);
+        $classCategories = DB::table('classes')->where('user_id', auth()->user()->id)->pluck('className', 'id');
 
-        $product = DB::table('products')->where('id',$id)->first();
-        return view('products.edit',compact('product'));
+        $product = DB::table('products')
+            ->join('classes', 'classes.id', '=', 'products.class_id')
+            ->where('products.id',$id)->first();
+        return view('products.edit',compact(['product', 'classCategories']));
     }
 
 

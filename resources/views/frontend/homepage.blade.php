@@ -41,8 +41,8 @@
                                         <a href="{{route('borrowItemList',$user->class_id)}}" style="text-decoration: none">
                                         <div class="text-white d-flex h-100 mask blue-gradient-rgba">
                                             <div class="first-content align-self-center p-3">
-                                                <h3 class="card-title">IT Department</h3>
-                                                <p class="lead mb-0">STEM 105 by Srun Sovila</p>
+                                                <h3 class="card-title">{{ $user->className }} , {{$user->section}}</h3>
+                                                <p class="lead mb-0">{{ $user->room }} by {{ $user->name }}</p>
                                             </div>
                                             <div class="second-content align-self-center mx-auto text-center">
                                                 <i class="far fa-money-bill-alt fa-3x"></i>

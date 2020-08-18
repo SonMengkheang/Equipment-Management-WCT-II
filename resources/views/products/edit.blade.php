@@ -48,9 +48,12 @@
         <div class="form-group">
             <label>Select Class </label>
             <select name="class_id" class="form-control">
-                    <option>
-                        {{$product->class_id}}
-                    </option>
+                <option selected value="{{ $product->class_id }}">{{ $product->className }}</option>
+                @foreach($classCategories as $id => $classCategoryName)
+                    @if($product->class_id !== $id)
+                        <option value="{{ $id }}">{{$classCategoryName}}</option>
+                    @endif
+                @endforeach
             </select>
         </div>
 
